@@ -24,4 +24,4 @@ From the instructions box to deploy with helm capture the follwoing :
 
 This will use values define in overlays/development to ovveride default values defined in base and apply it to the cluster.
 
-As an example the jon folder shows how to manage several environment with overlays.
+As an example the jon folder shows how to manage several environment with overlays. It also brings an overlay on deployment.yaml to chenage image tag for docker-runner
