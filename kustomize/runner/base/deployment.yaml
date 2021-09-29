@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blink-runner
+  labels:
+    app.kubernetes.io/name: blink-runner
+    app.kubernetes.io/instance: blink-runner
+    app.kubernetes.io/version: "1.0.763"
+    app.kubernetes.io/managed-by: kustomize
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blink-runner
+      release: blink-runner
+  template:
+    metadata:
+      labels:
+        app: blink-runner
+        release: blink-runner
+    spec:
+      serviceAccountName: blink-runner
+      securityContext:
+        {}
+      containers:
+        - name: blink-runner
+          securityContext:
+            {}
+          image: "blinkops/blink-runner:1.0.763"
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 100m
+              memory: 500Mi
+            requests:
+              cpu: 10m
+              memory: 150Mi
+          env:
+          - name: BLINK_RUNNER_CONFIG
+            value: /blink/config.yml
+          - name: RUNNER_MODE
+            value: kubernetes
+          - name: BLINK_RUNNER_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: blink-runner-secret
+                key: appKey
+          - name: BLINK_RUNNER_ID
+            valueFrom:
+              secretKeyRef:
+                name: blink-runner-secret
+                key: appId
+
+          volumeMounts:
+            - mountPath: /blink/config.yml
+              name: blink-config
+              subPath: config.yml
+
+      volumes:
+        - configMap:
+            name: blink-runner-config
+          name: blink-config
