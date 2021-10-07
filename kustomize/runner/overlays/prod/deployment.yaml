@@ -5,11 +5,11 @@ metadata:
     app.kubernetes.io/instance: blink-runner
     app.kubernetes.io/managed-by: Kustomize
     app.kubernetes.io/name: blink-runner
-    app.kubernetes.io/version: 1.0.800
+    app.kubernetes.io/version: 1.0-rr-prod-22-9-2021.747
   name: blink-runner
 spec:
   template:
     spec:
       containers:
         - name: blink-runner
-          image: "blinkops/blink-runner:1.0.800"
+          image: "blinkops/blink-runner:1.0-rr-prod-22-9-2021.747"
