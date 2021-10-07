@@ -14,7 +14,7 @@ From the "command for helm" instructions capture the following :
 * apiid
 * apikey
 
-1. In `runner/overlays/prod/secrets.ymal` set both apiId and apikey with corresponding captured values.
+1. In `runner/overlays/prod/secrets.yaml` set both apiId and apikey with corresponding captured values.
 2. open a terminal and navigate to this repository local path ./kustomize/runner and run the followning
    
    `kustomize build overlays/prod | kubectl apply -f -`
@@ -29,7 +29,7 @@ From the command for helm instructions capture the following :
 * apiid
 * apikey
 
-1. In `runner/overlays/development/secrets.ymal` set both apiId and apikey with corresponding captured values.
+1. In `runner/overlays/development/secrets.yaml` set both apiId and apikey with corresponding captured values.
 2. open a terminal and navigate to this repository local path ./kustomize/runner and run the followning
    
    `kustomize build overlays/development | kubectl apply -f -`
