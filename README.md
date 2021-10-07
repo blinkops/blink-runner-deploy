@@ -8,7 +8,7 @@ How to deploy Blink Runner with kustomize
 
 ## Deploy new runner in prod
 
-Navigate to (environment)[https://app.blinkops.com/runners] and add a new runner from UI.
+Navigate to [environment](https://app.blinkops.com/runners) and add a new runner from UI.
 
 From the "command for helm" instructions capture the following :
 * apiid
