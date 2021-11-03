@@ -26,7 +26,7 @@ spec:
         - name: blink-runner
           securityContext:
             {}
-          image: "blinkops/blink-runner:1.0.763"
+          image: "blinkops/blink-runner:1.0.994"
           imagePullPolicy: IfNotPresent
           resources:
             limits:
@@ -40,16 +40,11 @@ spec:
             value: /blink/config.yml
           - name: RUNNER_MODE
             value: kubernetes
-          - name: BLINK_RUNNER_API_KEY
+          - name: BLINK_RUNNER_GROUP_API_KEY
             valueFrom:
               secretKeyRef:
                 name: blink-runner-secret
                 key: appKey
-          - name: BLINK_RUNNER_ID
-            valueFrom:
-              secretKeyRef:
-                name: blink-runner-secret
-                key: appId
 
           volumeMounts:
             - mountPath: /blink/config.yml

@@ -14,7 +14,7 @@ data:
           nats_url: ws://blink-controller:8080/gw/
         runner:
           action_timeout: 60
-          ctrl_url: https://app.blinkops.com
+          ctrl_url: https://trr-app.blinkops.com
           retry_count: 5
           retry_duration: 5
         vault:

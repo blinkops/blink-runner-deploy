@@ -11,10 +11,9 @@ How to deploy Blink Runner with kustomize
 Navigate to [environment](https://app.blinkops.com/runners) and add a new runner from UI.
 
 From the "command for helm" instructions capture the following :
-* apiid
 * apikey
 
-1. In `runner/overlays/prod/secrets.yaml` set both apiId and apikey with corresponding captured values.
+1. In `runner/overlays/prod/secrets.yaml` set  apikey with captured value.
 2. open a terminal and navigate to this repository local path ./kustomize/runner and run the followning
    
    `kustomize build overlays/prod | kubectl apply -f -`
